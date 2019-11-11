@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pokemon"
+    app:startDestination="@id/pokemonsContainer">
+
+    <fragment
+        android:id="@+id/pokemonsContainer"
+        android:name="com.benjaminledet.pokedex.ui.pokemon.list.PokemonsContainerFragment"
+        tools:layout="@layout/fragment_pokemons_container"
+        android:label="@string/app_name">
+
+        <action
+            android:id="@+id/pokemonContainer_to_pokemonDetail"
+            app:destination="@id/pokemonDetail"
+            app:enterAnim="@anim/scale_up"
+            app:popEnterAnim="@anim/scale_down"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/pokemonDetail"
+        android:name="com.benjaminledet.pokedex.ui.pokemon.detail.PokemonDetailFragment"
+        tools:layout="@layout/fragment_pokemon_detail" />
+
+</navigation>

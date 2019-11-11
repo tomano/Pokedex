@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Pokedex</string>
+
+    <string name="pokemons_title">Pokémons</string>
+    <string name="items_title">Objets</string>
+    <string name="account_title">Compte</string>
+
+    <string name="paginated">Paginé</string>
+    <string name="no_paginated">Non paginé</string>
+
+    <string name="email">Email</string>
+    <string name="password">Mot de passe</string>
+    <string name="login">Se connecter</string>
+
+    <string name="error_refresh">Impossible de rafraichir</string>
+    <string name="error_load">Impossible de charger plus d\'éléments</string>
+
+    <string name="pokemon_weight">Poids : %1$s kg</string>
+    <string name="pokemon_height">Taille : %1$s cm</string>
+
+    <string name="theme">Thème :</string>
+    <string name="theme_light">Clair</string>
+    <string name="theme_dark">Foncé</string>
+    <string name="theme_default">Automatique</string>
+
+</resources>

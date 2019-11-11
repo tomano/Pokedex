@@ -1,0 +1,81 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: "kotlin-kapt"
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    defaultConfig {
+        applicationId "com.benjaminledet.pokedex"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    kapt {
+        arguments {
+            arg("room.schemaLocation", "$projectDir/schemas")
+        }
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    implementation rootProject.ext.dependencies.android.appCompat
+    implementation rootProject.ext.dependencies.android.core
+    implementation rootProject.ext.dependencies.android.preferences
+    implementation rootProject.ext.dependencies.android.constraintLayout
+    implementation rootProject.ext.dependencies.android.paging
+    implementation rootProject.ext.dependencies.android.swipeRefreshLayout
+    implementation rootProject.ext.dependencies.android.viewPager2
+
+    implementation rootProject.ext.dependencies.coroutines.android
+    implementation rootProject.ext.dependencies.coroutines.core
+
+    implementation rootProject.ext.dependencies.google.material
+
+    implementation rootProject.ext.dependencies.koin.scope
+    implementation rootProject.ext.dependencies.koin.viewModel
+
+    implementation rootProject.ext.dependencies.lifecycle.core
+    implementation rootProject.ext.dependencies.lifecycle.viewModel
+    implementation rootProject.ext.dependencies.lifecycle.liveData
+    implementation rootProject.ext.dependencies.lifecycle.runtime
+    kapt rootProject.ext.dependencies.lifecycle.compiler
+
+    implementation rootProject.ext.dependencies.navigation.fragment
+    implementation rootProject.ext.dependencies.navigation.ui
+
+    implementation rootProject.ext.dependencies.room.common
+    implementation rootProject.ext.dependencies.room.core
+    kapt rootProject.ext.dependencies.room.compiler
+    implementation rootProject.ext.dependencies.room.extensions
+
+    implementation rootProject.ext.dependencies.square.retrofit
+    implementation rootProject.ext.dependencies.square.gsonConverter
+    implementation rootProject.ext.dependencies.square.okhttp
+    implementation rootProject.ext.dependencies.square.loggingInterceptor
+    implementation rootProject.ext.dependencies.square.picasso
+
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+}
