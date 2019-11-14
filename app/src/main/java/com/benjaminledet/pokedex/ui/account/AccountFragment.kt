@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.benjaminledet.pokedex.R
+import com.benjaminledet.pokedex.extensions.getAttributeFromAttr
 import com.benjaminledet.pokedex.manager.PreferencesManager
 import kotlinx.android.synthetic.main.fragment_account.*
 import org.koin.android.ext.android.inject
@@ -24,6 +26,9 @@ class AccountFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupThemeView()
+
+        loginButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.blue))
+        loginButton.setBackgroundColor(requireContext().getAttributeFromAttr(R.attr.colorPrimary))
     }
 
     private fun setupThemeView() {

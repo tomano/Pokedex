@@ -1,6 +1,4 @@
 <resources>
-    <string name="app_name">Pokedex</string>
-
     <string name="pokemons_title">Pokémons</string>
     <string name="items_title">Objets</string>
     <string name="account_title">Compte</string>
