@@ -73,7 +73,7 @@ class PokeApiClient: KoinComponent {
     private fun apiResourceResponseToPokemon(apiResourceResponse: ApiResourceResponse) = Pokemon(
         id = getPokemonIdFromUrl(apiResourceResponse.url) ?: 0,
         name = apiResourceResponse.name?.capitalize() ?: "",
-        iconUrl = getPokemonIconUrl(getPokemonIdFromUrl(apiResourceResponse.url)),
+        iconUrl = getPokemonBeautifulIconUrl(getPokemonIdFromUrl(apiResourceResponse.url)), //getPokemonIconUrl(getPokemonIdFromUrl(apiResourceResponse.url)),
         detail = null
     )
 
@@ -87,7 +87,7 @@ class PokeApiClient: KoinComponent {
     private fun pokemonResponseToPokemon(pokemonResponse: PokemonResponse) = Pokemon(
         id = pokemonResponse.id,
         name = pokemonResponse.name.capitalize(),
-        iconUrl = pokemonResponse.sprites[PokemonResponse.DEFAULT_SPRITE],
+        iconUrl = getPokemonBeautifulIconUrl(pokemonResponse.id),//pokemonResponse.sprites[PokemonResponse.DEFAULT_SPRITE],
         detail = PokemonDetail(
             weight = pokemonResponse.weight / 10,
             height = pokemonResponse.height / 10,
@@ -153,12 +153,15 @@ class PokeApiClient: KoinComponent {
 
     private fun getPokemonIconUrl(id: Int?) = "$POKEMON_ICON_BASE_URL$id$ICON_EXTENSION"
 
+    private fun getPokemonBeautifulIconUrl(id: Int?) = "$POKEMON_BEAUTIFUL_ICON_BASE_URL${String.format("%03d", id)}$ICON_EXTENSION"
+
     private fun getItemIconUrl(name: String?) = "$ITEM_ICON_BASE_URL$name$ICON_EXTENSION"
 
     companion object {
         private const val TAG = "PokeApiClient"
         private const val ICON_EXTENSION = ".png"
         private const val POKEMON_ICON_BASE_URL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"
+        private const val POKEMON_BEAUTIFUL_ICON_BASE_URL = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/"
         private const val ITEM_ICON_BASE_URL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/"
     }
 }
