@@ -33,12 +33,14 @@ class PokemonDetailActivity: AppCompatActivity() {
             title = pokemon?.name
             weight.text = getString(R.string.pokemon_weight, pokemon?.detail?.weight.toString())
             height.text = getString(R.string.pokemon_height, pokemon?.detail?.height.toString())
-
+            types.text = pokemon?.detail?.types.toString()
+            //moves.text = pokemon?.detail?.moves.toString()
             Picasso.get().load(pokemon?.iconUrl).into(icon)
         })
 
         viewModel.moves.observe(this, Observer { moves ->
             Log.d( "PokemonDetailActivity", "moves : $moves")
+
         })
     }
 

@@ -24,20 +24,19 @@
 
         <ImageView
             android:id="@+id/icon"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/toolbar"/>
 
-
         <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardWeight"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_margin="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/icon"
+        app:layout_constraintStart_toEndOf="@id/icon"
+        app:layout_constraintEnd_toStartOf="@id/cardHeight"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
         >
 
             <TextView
@@ -48,8 +47,19 @@
                 tools:text="6.9kg"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/icon"
-                android:textAlignment="viewStart"/>
+                android:textAlignment="center"/>
+        </com.google.android.material.card.MaterialCardView>
 
+
+        <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardHeight"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_margin="16dp"
+                app:layout_constraintStart_toEndOf="@id/cardWeight"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/toolbar"
+        >
             <TextView
                 android:id="@+id/height"
                 android:layout_width="match_parent"
@@ -58,9 +68,21 @@
                 tools:text="0.7m"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/icon"
-                android:textAlignment="viewEnd"/>
+                android:textAlignment="center"/>
+    </com.google.android.material.card.MaterialCardView>
 
-        </com.google.android.material.card.MaterialCardView>
+            <TextView
+                    android:id="@+id/types"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    tools:text="0"
+                    app:layout_constraintStart_toEndOf="@id/icon"
+                    app:layout_constraintBottom_toBottomOf="@id/icon"
+                    android:textAlignment="center"
+                    />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
