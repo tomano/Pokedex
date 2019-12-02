@@ -29,7 +29,7 @@ interface PokeApiService {
     @GET("item-pocket/{name}")
     suspend fun getItemPocketAsync(@Path("name") name: String): Response<ItemPocketResponse>
 
-    @GET("move/{id}")
+    @GET("move/{name}")
     suspend fun getMoveAsync(@Path("name") name: String): Response<MoveResponse>
 
 
